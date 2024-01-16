@@ -1,7 +1,7 @@
 import httpclient, json, os, parseopt, strutils
 
-var VERSION = "0.0.2"
-var USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36 Vivaldi/4.2"
+var VERSION = "0.0.3"
+var USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 proc printHelp() =
   echo "emoji_borrower " & VERSION
@@ -41,7 +41,7 @@ proc stealEmoji(instance: string, name_filter: string) =
         continue
 
     downloadEmoji(emoji_url, emoji_fname, instance, http_client)
-    sleep(15)
+    sleep(75)
 
 proc parseCmdLine(cmdLine: seq) =
   echo "Grabbing list of emoji..."
