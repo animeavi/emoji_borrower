@@ -25,6 +25,7 @@ proc downloadEmoji(url: string, fname: string, instance: string, http_client: Ht
     echo fname & " already exists, skipping..."
 
 proc stealEmoji(instance: string, name_filter: string) =
+  echo "Grabbing list of emoji..."
   var api_url = "https://" & instance & "/api/v1/custom_emojis"
   let http_client = newHttpClient(userAgent=USER_AGENT)
   let json_node = parseJson(http_client.getContent(api_url))
@@ -44,7 +45,6 @@ proc stealEmoji(instance: string, name_filter: string) =
     sleep(75)
 
 proc parseCmdLine(cmdLine: seq) =
-  echo "Grabbing list of emoji..."
   var cmdOptions = initOptParser(cmdLine)
   var arg = ""
   var instance = ""
